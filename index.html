@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<h1>Đăng ký thành viên</h1>
+
+	<form>
+	Họ tên * <input type="text" name="" id="hoten"><br>	
+	Tên tài khoản * <input type="text" name="" id="tk"><br>	
+	Mật khẩu * <input type="text" name="" id="pass">	<br>
+	Nhập lại mật khẩu * <input type="text" name="" id="repass"><br>	
+	Email * <input type="text" name="" id="email">	<br>
+	SĐT * <input type="text" name="" id="sdt">	<br>
+	Địa chỉ <textarea name="diachi"></textarea><br>
+	<input type="button" value="Đăng ký" name="" onclick="Kiemtra()"><br>
+
+	</form>
+<script type="text/javascript">
+	function Kiemtra(){
+
+		var ten = document.getElementById('hoten').value;
+		console.log(ten);
+		if (ten=="") {
+			alert('Họ và tên k được bỏ trống');
+		}
+
+		var tk1= document.getElementById('tk').value;
+		var pass1=document.getElementById('pass').value;
+		var repass1=document.getElementById('repass').value;
+		var email1=document.getElementById('email').value;
+		var sdt1=document.getElementById('sdt').value;
+
+
+		
+	}
+
+
+</script>
+
+
+</body>
+</html>
