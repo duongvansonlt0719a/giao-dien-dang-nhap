@@ -6,34 +6,112 @@
 <body>
 <h1>Đăng ký thành viên</h1>
 
-	<form>
-	Họ tên * <input type="text" name="" id="hoten"><br>	
-	Tên tài khoản * <input type="text" name="" id="tk"><br>	
-	Mật khẩu * <input type="text" name="" id="pass">	<br>
-	Nhập lại mật khẩu * <input type="text" name="" id="repass"><br>	
-	Email * <input type="text" name="" id="email">	<br>
-	SĐT * <input type="text" name="" id="sdt">	<br>
-	Địa chỉ <textarea name="diachi"></textarea><br>
-	<input type="button" value="Đăng ký" name="" onclick="Kiemtra()"><br>
+	
+<table>
+	<tr>
+		<td>Họ tên*</td>
+		<td><input type="text" name="" id="hoten"></td>
+		<td><div id="1"></div></td>
+	</tr>
+	<tr>
+		<td>Tên tài khoản*</td>
+		<td><input type="text" name="" id="tk"></td>
+		<td id="2"></td>
+	</tr>
+	<tr>
+		<td>Mật khẩu*</td>
+		<td><input type="password" name="" id="pass"></td>
+		<td id="3"></td>
+	</tr>
+	<tr>
+		<td>Nhập lại mật khẩu</td>
+		<td><input type="password" name="" id="repass"></td>
+		<td id="4"></td>
+	</tr>
+	<tr>
+		<td>Email*</td>
+		<td><input type="text" name="" id="email"></td>
+		<td id="5"></td>
+	</tr>
+		<tr>
+		<td>SĐT*</td>
+		<td><input type="text" name="" id="sdt"></td>
+		<td id="6"></td>
+	</tr>
+		<tr>
+		<td>Địa chỉ*</td>
+		<td><textarea name="diachi"></textarea><br></td>
+		<td id="7"></td>
+	</tr>
+	</tr>
+	<tr>
+		<td><input type="button" value="Đăng ký" name="" onclick="Kiemtra()"></td>
+	</tr>
+</table>
 
-	</form>
 <script type="text/javascript">
 	function Kiemtra(){
 
 		var ten = document.getElementById('hoten').value;
-		console.log(ten);
-		if (ten=="") {
-			alert('Họ và tên k được bỏ trống');
-		}
-
 		var tk1= document.getElementById('tk').value;
 		var pass1=document.getElementById('pass').value;
 		var repass1=document.getElementById('repass').value;
 		var email1=document.getElementById('email').value;
 		var sdt1=document.getElementById('sdt').value;
-
-
+		var space=/^.\S{5,15}$/;
+		var tk2 = tk1.search(space);
+		var email2 = /^.\w{3,10}(@gmail.com)$/;
+		var sdt2 = /^(0)\d{9}$/;
 		
+		if (ten=="") {
+			alert('Họ và tên không được bỏ trống');
+		}
+			else {
+			document.getElementById('1').innerText="Hợp Lệ";
+		}
+		if (tk1=="") {
+			alert('Tên tài khoản không được bỏ trống');
+		}
+			else if (space.test(tk1)) {
+				document.getElementById('2').innerText="Hợp Lệ";
+		}
+				else {
+					document.getElementById('2').innerText='Tên tài khoản không được chứa dấu cách';
+		}
+		if (pass1=="") {
+			alert('Mật khẩu không được bỏ trống');
+		}
+		else{
+			document.getElementById('3').innerText="Mật khẩu hợp lệ";
+		}
+		if (repass1=="") {
+			alert('Nhập lại mật khẩu không được bỏ trống');
+		}
+		else if (repass1==pass1) {
+			document.getElementById('4').innerText="Khớp";
+		}
+		else{
+			document.getElementById('4').innerText="Mật khẩu không khớp, vui lòng nhập lại mật khẩu";
+		}
+		if (email1=="") {
+			alert('Email không được để trống');
+		}
+		else if (email2.test(email1)) {
+			document.getElementById('5').innerText="Hợp Lệ";
+		}
+		else{
+			document.getElementById('5').innerText="Email không hợp lệ"
+		}
+		if (sdt1=="") {
+			alert('Số điện thoại không được bỏ trống');
+		}
+		else if (sdt2.test(sdt1)) {
+			document.getElementById('6').innerText="Hợp lệ";
+		}
+		else{
+			document.getElementById('6').innerText="Số điện thoại không đúng, vui lòng nhập lại";
+		}
+
 	}
 
 
